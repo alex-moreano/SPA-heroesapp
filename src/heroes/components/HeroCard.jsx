@@ -1,7 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const HeroCard = ({id, superhero, publisher, alter_ego, first_appearance, characters}) => {
     const heroImageUrl = `/assets/heroes/${id}.jpg`;
+    const charactersByHero = <p>{characters}</p>
     return (
     <div className='col'>
         <div className="card">
@@ -13,7 +15,15 @@ export const HeroCard = ({id, superhero, publisher, alter_ego, first_appearance,
                     <div className="card-body">
                         <h5 className="card-title">{superhero}</h5>
                         <p className='card-text'>{alter_ego}</p>
-                        <p>{characters}</p>
+                        {
+                            (alter_ego !== characters) && charactersByHero 
+                        }
+                        <p className='card-text'>
+                            <small className='text-muted'>{first_appearance}</small>
+                        </p>
+                        <Link to={`/hero/${id}`}>
+                            Mas info...
+                        </Link>
                     </div>
                 </div>
             </div>
