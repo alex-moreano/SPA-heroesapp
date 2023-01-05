@@ -46,7 +46,7 @@ export const Search = () => {
             </div>
             :
             (heroes.length === 0) &&
-            <div className='alert alert-danger'>
+            <div aria-label='alert-danger' className='alert alert-danger'>
               No hero found with <b>{q}</b>
             </div>
 
